@@ -5,7 +5,12 @@ export default function ExampleUseState() {
     const [age, setAge] = useState(19);
     const [siblingsNum, setSiblingsNum] = useState(10);
     const [data, setData] = useState({agee:19, siblingsNume: 4});
-    
+    const [token] = useState(() => {
+        const token = window.localStorage.getItem("my-token");
+        return token || "defult#-token$";
+    });
+    const [count, setCount] = useState(0);
+
 
 
     const handleClick = (val:keyof typeof data) => {
@@ -26,7 +31,7 @@ export default function ExampleUseState() {
         <div className='w-full h-screen duration-200'>
           <div className='flex'>
               <div className='bg-green-100 m-2'>
-                <h3>Use State</h3>
+                <h3>Use State Functional setState</h3>
                 <h5> Increment Counter {state} </h5>
                 <button className='border border-green-400 p-1' onClick={onUseState}>Add </button>
                 </div>
@@ -53,6 +58,15 @@ export default function ExampleUseState() {
                 More siblings!
                 </button>
             </div>
+        </div>
+        <h1 className='text-3xl'>Initialize state from function</h1>
+        <div className='border'>Token is {token}.</div>
+        <h1 className='text-3xl'>Functional setState</h1>
+        <div className="border">
+            <p>Count Value is: {count}</p>
+            <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={() => setCount(0)}> Reset</button>
+            <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={() => setCount(count + 1)}> Plus + 1</button>
+            <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={() => setCount(count - 1)}> Minus - 1</button>
         </div>
       </div>
 

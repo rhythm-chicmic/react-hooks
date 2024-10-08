@@ -1,5 +1,7 @@
 import './App.css'
-import ExampleUseState from './components/ExampleUseState'
+import ExampleUseContext from './components/ExampleUseContext'
+// import ExampleUseEffect from './components/ExampleUseEffect'
+// import ExampleUseState from './components/ExampleUseState'
 import NavBar from './components/NavBar'
 
 function App() {
@@ -7,7 +9,9 @@ function App() {
   return (
     <>
     <NavBar />
-      <ExampleUseState />
+      {/* <ExampleUseState /> */}
+      {/* <ExampleUseEffect /> */}
+      <ExampleUseContext />
     </>
   )
 }
